@@ -57,7 +57,7 @@ function PageSingle() {
                     {singleMovieObject.release_date} • {genres.toString()} •{" "}
                     {`${singleMovieObject.runtime} minutes`}
                 </p>
-                <p className="single-movie-ratingw">{`${Math.round(
+                <p className="single-movie-rating">{`${Math.round(
                     singleMovieObject.vote_average * 10
                 )}%`}</p>
                 <h2>Overview</h2>
