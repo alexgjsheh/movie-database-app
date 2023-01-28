@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import unfilledHeart from "../images/unfilledHeart.svg";
 import filledHeart from "../images/filledHeart.svg";
+import FavButton from "./FavButton";
+import { useDispatch } from "react-redux";
+import { addFav, deleteFav } from "../features/favs/favsSlice";
 
 import { Link } from "react-router-dom";
 
@@ -12,6 +15,8 @@ function Card({
     overview,
     posterPath,
     releaseDate,
+    movieObj,
+    isFav,
 }) {
     const [isLiked, setIsLiked] = useState(false);
     // button to change filter
@@ -20,6 +25,18 @@ function Card({
     function handleFavoriteButton() {
         setIsLiked(!isLiked);
     }
+
+    const dispatch = useDispatch();
+
+    function handleFavClick(addToFav) {
+    if (addToFav === true) {
+      console.log({object});
+      dispatch(addFav({object}));
+    } else {
+        console.log({object});
+      dispatch(deleteFav({object}));
+    }
+  }
 
     // function handleFavoriteButton2() {
     //     if (isLiked) {
@@ -60,6 +77,24 @@ function Card({
                     alt="Heart Image"
                     onClick={handleFavoriteButton}
                 />
+                
+                
+            <div className="btn-favourite">
+                {isLiked ? (
+                <FavButton
+                    movieObj={movieObj}
+                    remove={true}
+                    handleFavClick={handleFavClick}
+                />
+                ) : (
+                <FavButton
+                    movieObj={movieObj}
+                    handleFavClick={handleFavClick}
+                />
+                )}
+            </div>
+
+
                 <p className="movie-overview">{overview}</p>
                 {/* <a className="more-info-btn" href="#">
                     More Info

@@ -1,22 +1,45 @@
 import { useEffect } from "react";
+import Card from "../components/Card";
+import { useSelector } from "react-redux";
+import { favsSlice } from "../features/favs/favsSlice";
 
-function PageFavorites({ card }) {
-    useEffect(() => {
-        document.title = `filmsPerSecond - Favorites`;
-    }, []);
+function PageFavorites() {
+  const favs = useSelector((state) => state.favs.items);
 
-    return (
-        <>
-            <section className="main-content">
-                <div
-                    className="movie-card-container"
-                    style={{ position: "relative" }}
-                >
-                    {card}
-                </div>
-            </section>
-        </>
-    );
+  useEffect(() => {
+    document.title = `filmsPerSecond - Favorites`;
+  }, []);
+
+  return (
+    <main>
+      <section>
+        <h2>Favourite Movies</h2>
+        {favs.length < 1 ? (
+          <p>
+            No favorite Movies. Please add some favorite Movies.
+            <Card/>
+          </p>
+        ) : (
+          <div className="movies">
+            {favs.map((movie, i) => {
+              return (
+                <Card
+                object={favs[i]}
+                key={movie.id}
+                id={movie.id}
+                title={movie.title}
+                voteAverage={movie.vote_average}
+                overview={movie.overview}
+                posterPath={movie.poster_path}
+                releaseDate={movie.release_date}
+                />
+              );
+            })}
+          </div>
+        )}
+      </section>
+    </main>
+  );
 }
 
 export default PageFavorites;
