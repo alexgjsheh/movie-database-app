@@ -2,6 +2,7 @@ import "../components/App.css";
 import Card from "../components/Card";
 import Hero from "../components/Hero";
 import FilterBtn from "../components/FilterBtn";
+import MoreMoviesBtn from "../components/MoreMoviesBtn";
 import { useState, useEffect } from "react";
 import { getItem } from "../utils/lib";
 const apiKey = "c996a81d85c17dc34079c75c472905fd";
@@ -9,17 +10,27 @@ const apiKey = "c996a81d85c17dc34079c75c472905fd";
 function PageHome() {
     const [arrayFromApi, setArrayFromApi] = useState([]);
     const [movieFilter, setMovieFilter] = useState("popular");
+    const [pageNum, setPageNum] = useState(1);
 
     useEffect(() => {
         const fetchMovies = async () => {
             const data = await fetch(
-                `https://api.themoviedb.org/3/movie/${movieFilter}?api_key=${apiKey}`
+                `https://api.themoviedb.org/3/movie/${movieFilter}?api_key=${apiKey}&language=en-US&page=${pageNum}`
+                // `https://api.themoviedb.org/3/movie/${movieFilter}?api_key=${apiKey}`
             );
             const movies = await data.json();
-            setArrayFromApi(movies.results);
+            // problem if this number is higher
+            if (pageNum === 1) {
+                setArrayFromApi(movies.results);
+            } else {
+                setArrayFromApi((prevArrayFromApi) => {
+                    // spreading the original array and the newly generated one
+                    return [...prevArrayFromApi, ...movies.results];
+                });
+            }
         };
         fetchMovies();
-    }, [movieFilter]);
+    }, [movieFilter, pageNum]);
 
     // just for testing
     console.log(arrayFromApi);
@@ -27,9 +38,16 @@ function PageHome() {
     // button to change filter
     function handleFilterButton(filter) {
         setMovieFilter(filter);
+        setPageNum(1);
     }
 
-    // const favs = getItem("favorites");
+    // increment pageNumber when clicking more movies btn
+    // can try appending each one by looping through them?
+    function handleMoreMoviesButton() {
+        setPageNum((prevState) => {
+            return prevState + 1;
+        });
+    }
 
     // generate cards here
     let cards = arrayFromApi.map((movie, i) => (
@@ -78,18 +96,9 @@ function PageHome() {
         />
     ));
 
-    // create a function to store favorites into local storage that you pass down to each child component
-
     // to generate a random hero image
     let randIndex = Math.floor(Math.random() * 20);
     const randHero = arrayFromApi?.[randIndex];
-
-    // TEST ARRAY TO PASS INTO SINGLE PAGE
-    // const newArray = [];
-    // for (let i = 0; i < arrayFromApi.length; i++) {
-    //     newArray.push([arrayFromApi?.[i]]);
-    // }
-    // console.log(newArray);
 
     const hero = randHero ? (
         <Hero
@@ -105,8 +114,6 @@ function PageHome() {
     }, []);
 
     const favs = getItem("favorites");
-
-    // create a function to store favorites into local storage that you pass down to each child component
 
     return (
         <div className="App">
@@ -142,6 +149,7 @@ function PageHome() {
                 >
                     {cards}
                 </div>
+                <MoreMoviesBtn onClick={handleMoreMoviesButton} />
             </section>
         </div>
     );
