@@ -20,7 +20,7 @@ function PageFavorites() {
             <Card/>
           </p>
         ) : (
-          <div className="movies">
+          <div className="movie-card-container">
             {favs.map((movie, i) => {
               return (
                 <Card
@@ -36,7 +36,7 @@ function PageFavorites() {
               );
             })}
           </div>
-        )}
+          )}
       </section>
     </main>
   );

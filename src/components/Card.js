@@ -30,11 +30,11 @@ function Card({
 
     function handleFavClick(addToFav) {
     if (addToFav === true) {
-      console.log({object});
-      dispatch(addFav({object}));
+      console.log(object);
+      dispatch(addFav(object));
     } else {
-        console.log({object});
-      dispatch(deleteFav({object}));
+        console.log(object);
+      dispatch(deleteFav(object));
     }
   }
 
