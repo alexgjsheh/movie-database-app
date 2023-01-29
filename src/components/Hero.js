@@ -4,8 +4,8 @@ function Hero({ id, title, overview, backdropPath }) {
     return (
         <div className="hero">
             <div className="hero-text">
-                <h1>{title}</h1>
-                <p>{overview}</p>
+                <h2>{title}</h2>
+                <p className="hero-overview">{overview}</p>
                 {/* <a className="more-info-btn" href="#">
                     More Info
                 </a> */}
