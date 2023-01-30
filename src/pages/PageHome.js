@@ -4,13 +4,16 @@ import Hero from "../components/Hero";
 import FilterBtn from "../components/FilterBtn";
 import MoreMoviesBtn from "../components/MoreMoviesBtn";
 import { useState, useEffect } from "react";
-import { getItem } from "../utils/lib";
+// import { getItem } from "../utils/lib";
+import isFav from "../utils/isFav";
+import { useSelector } from "react-redux";
 const apiKey = "c996a81d85c17dc34079c75c472905fd";
 
 function PageHome() {
     const [arrayFromApi, setArrayFromApi] = useState([]);
     const [movieFilter, setMovieFilter] = useState("popular");
     const [pageNum, setPageNum] = useState(1);
+    const favs = useSelector((state) => state.favs.items);
 
     useEffect(() => {
         const fetchMovies = async () => {
@@ -62,6 +65,7 @@ function PageHome() {
             overview={movie.overview}
             posterPath={movie.poster_path}
             releaseDate={movie.release_date}
+            isFav={isFav(favs, null, movie.id)}
             // handleFavoriteClick={handleFavoriteButton}
         />
     ));
@@ -113,7 +117,7 @@ function PageHome() {
         document.title = `filmsPerSecond - Home`;
     }, []);
 
-    const favs = getItem("favorites");
+    // const favs = getItem("favorites");
 
     return (
         <div className="App">

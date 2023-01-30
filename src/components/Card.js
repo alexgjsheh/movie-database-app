@@ -80,7 +80,7 @@ function Card({
                 
                 
             <div className="btn-favourite">
-                {isLiked ? (
+                {isFav ? (
                 <FavButton
                     movieObj={movieObj}
                     remove={true}

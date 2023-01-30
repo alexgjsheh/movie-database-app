@@ -17,7 +17,6 @@ function PageFavorites() {
         {favs.length < 1 ? (
           <p>
             No favorite Movies. Please add some favorite Movies.
-            <Card/>
           </p>
         ) : (
           <div className="movie-card-container">
@@ -32,6 +31,7 @@ function PageFavorites() {
                 overview={movie.overview}
                 posterPath={movie.poster_path}
                 releaseDate={movie.release_date}
+                isFav={true}
                 />
               );
             })}
