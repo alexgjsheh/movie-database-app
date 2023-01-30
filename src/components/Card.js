@@ -71,13 +71,6 @@ function Card({
                 alt="Movie Image"
             />
             <div className={`movie-hover ${hover ? "hovered" : ""}`}>
-                <img
-                    className="heart"
-                    src={isLiked ? filledHeart : unfilledHeart}
-                    alt="Heart Image"
-                    onClick={handleFavoriteButton}
-                />
-                
                 
             <div className="btn-favourite">
                 {isFav ? (

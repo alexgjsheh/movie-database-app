@@ -1,4 +1,6 @@
 // Fav Button
+import unfilledHeart from "../images/unfilledHeart.svg";
+import filledHeart from "../images/filledHeart.svg";
 
 function FavButton({ object, remove, handleFavClick }) {
   function handleAddFav() {
@@ -12,9 +14,19 @@ function FavButton({ object, remove, handleFavClick }) {
   return (
     <>
       {remove === false ? (
-        <button onClick={handleAddFav}>Add To Favourites</button>
+        <img
+        className="heart"
+        src={unfilledHeart}
+        alt="Heart"
+        onClick={handleAddFav}
+      />
       ) : (
-        <button onClick={handleRemoveFav}>Remove From Favourites</button>
+        <img
+        className="heart"
+        src={filledHeart}
+        alt="Heart"
+        onClick={handleRemoveFav}
+    />
       )}
     </>
   );
@@ -25,3 +37,4 @@ FavButton.defaultProps = {
 };
 
 export default FavButton;
+
