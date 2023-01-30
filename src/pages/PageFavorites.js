@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import Card from "../components/Card";
 import { useSelector } from "react-redux";
-import { favsSlice } from "../features/favs/favsSlice";
 
 function PageFavorites() {
   const favs = useSelector((state) => state.favs.items);
