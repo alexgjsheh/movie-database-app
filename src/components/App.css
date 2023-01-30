@@ -652,7 +652,7 @@ header {
         margin-bottom: 3rem;
     }
     .hero-img {
-        height: 88vh;
+        max-height: 88vh;
     }
     .hero-overview {
         display: block;

@@ -1,6 +1,4 @@
-import { useState, useEffect } from "react";
-import unfilledHeart from "../images/unfilledHeart.svg";
-import filledHeart from "../images/filledHeart.svg";
+import { useState } from "react";
 import FavButton from "./FavButton";
 import { useDispatch } from "react-redux";
 import { addFav, deleteFav } from "../features/favs/favsSlice";
@@ -18,25 +16,20 @@ function Card({
     movieObj,
     isFav,
 }) {
-    const [isLiked, setIsLiked] = useState(false);
     // button to change filter
     const [hover, setHover] = useState(false);
-
-    function handleFavoriteButton() {
-        setIsLiked(!isLiked);
-    }
 
     const dispatch = useDispatch();
 
     function handleFavClick(addToFav) {
-    if (addToFav === true) {
-      console.log(object);
-      dispatch(addFav(object));
-    } else {
-        console.log(object);
-      dispatch(deleteFav(object));
+        if (addToFav === true) {
+            console.log(object);
+            dispatch(addFav(object));
+        } else {
+            console.log(object);
+            dispatch(deleteFav(object));
+        }
     }
-  }
 
     // function handleFavoriteButton2() {
     //     if (isLiked) {
@@ -48,16 +41,6 @@ function Card({
     //         localStorage.removeItem(id);
     //     }
     // }
-
-    // locally storing favorites
-    useEffect(() => {
-        if (isLiked) {
-            const movieString = JSON.stringify(object);
-            localStorage.setItem(id, movieString);
-        } else if (!isLiked) {
-            localStorage.removeItem(id);
-        }
-    }, [isLiked]);
 
     return (
         <article
@@ -71,23 +54,20 @@ function Card({
                 alt="Movie Image"
             />
             <div className={`movie-hover ${hover ? "hovered" : ""}`}>
-                
-            <div className="btn-favourite">
-                {isFav ? (
-                <FavButton
-                    movieObj={movieObj}
-                    remove={true}
-                    handleFavClick={handleFavClick}
-                />
-                ) : (
-                <FavButton
-                    movieObj={movieObj}
-                    handleFavClick={handleFavClick}
-                />
-                )}
-            </div>
-
-
+                <div className="btn-favourite">
+                    {isFav ? (
+                        <FavButton
+                            movieObj={movieObj}
+                            remove={true}
+                            handleFavClick={handleFavClick}
+                        />
+                    ) : (
+                        <FavButton
+                            movieObj={movieObj}
+                            handleFavClick={handleFavClick}
+                        />
+                    )}
+                </div>
                 <p className="movie-overview">{overview}</p>
                 {/* <a className="more-info-btn" href="#">
                     More Info
