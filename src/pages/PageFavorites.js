@@ -12,27 +12,38 @@ function PageFavorites() {
     return (
         <main>
             <section className="main-content">
-                <h2 className="favorite-movies-heading">Favorite Movies</h2>
                 {favs.length < 1 ? (
-                    <p>No favorite Movies. Please add some favorite Movies.</p>
+                    <section className="about-section">
+                        <h2 className="favorite-movies-heading">
+                            Favorite Movies
+                        </h2>
+                        <p>
+                            No favorite Movies. Please add some favorite Movies.
+                        </p>
+                    </section>
                 ) : (
-                    <div className="movie-card-container">
-                        {favs.map((movie, i) => {
-                            return (
-                                <Card
-                                    object={favs[i]}
-                                    key={movie.id}
-                                    id={movie.id}
-                                    title={movie.title}
-                                    voteAverage={movie.vote_average}
-                                    overview={movie.overview}
-                                    posterPath={movie.poster_path}
-                                    releaseDate={movie.release_date}
-                                    isFav={true}
-                                />
-                            );
-                        })}
-                    </div>
+                    <>
+                        <h2 className="favorite-movies-heading has-fav">
+                            Favorite Movies
+                        </h2>
+                        <div className="movie-card-container">
+                            {favs.map((movie, i) => {
+                                return (
+                                    <Card
+                                        object={favs[i]}
+                                        key={movie.id}
+                                        id={movie.id}
+                                        title={movie.title}
+                                        voteAverage={movie.vote_average}
+                                        overview={movie.overview}
+                                        posterPath={movie.poster_path}
+                                        releaseDate={movie.release_date}
+                                        isFav={true}
+                                    />
+                                );
+                            })}
+                        </div>
+                    </>
                 )}
             </section>
         </main>

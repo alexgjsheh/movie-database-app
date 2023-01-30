@@ -7,7 +7,7 @@ function PageAbout() {
     return (
         <>
             <section className="about-section">
-                <h1>About</h1>
+                <h2 className="about-section-heading">About</h2>
                 <p>
                     filmsPerSecond is an online movie database application that
                     allows users to browse and view detailed information about

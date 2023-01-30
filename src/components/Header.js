@@ -25,11 +25,13 @@ function Header() {
 
     return (
         <header>
-            <img
-                className="site-logo"
-                src={LogoSvg}
-                alt="Movie Database App Logo"
-            />
+            <h1>
+                <img
+                    className="site-logo"
+                    src={LogoSvg}
+                    alt="Movie Database App Logo"
+                />
+            </h1>
             <button className="nav-hamburger-btn" onClick={showHideNav}>
                 <div className={`hamburger ${navOpen ? "is-active" : ""}`}>
                     <span className="line"></span>

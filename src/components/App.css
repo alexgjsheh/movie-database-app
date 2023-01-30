@@ -703,6 +703,10 @@ header {
     border-radius: 40px;
 }
 
+.about-section-heading {
+    font-size: 1.5rem;
+}
+
 @media (min-width: 640px) {
     .about-section {
         background-color: black;
@@ -721,6 +725,9 @@ header {
         font-size: 1rem;
         line-height: 2rem;
         padding: 5rem;
+    }
+    .about-section-heading {
+        font-size: 1.75rem;
     }
 }
 
@@ -945,7 +952,17 @@ header {
 /* favorite page styling */
 
 .favorite-movies-heading {
-    margin-top: 2rem;
+    margin-top: 0;
     color: white;
     font-size: 1.5rem;
+}
+
+.has-fav {
+    margin-top: 2rem;
+}
+
+@media (min-width: 960px) {
+    .favorite-movies-heading {
+        font-size: 1.75rem;
+    }
 }
