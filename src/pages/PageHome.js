@@ -10,6 +10,8 @@ import { useSelector } from "react-redux";
 const apiKey = "c996a81d85c17dc34079c75c472905fd";
 
 function PageHome() {
+    const [randomHeroObject, setRandomHeroObject] = useState();
+    // const [randHeroObject, setRandomHeroObject] = useState([]);
     const [arrayFromApi, setArrayFromApi] = useState([]);
     const [movieFilter, setMovieFilter] = useState("popular");
     const [pageNum, setPageNum] = useState(1);
@@ -31,6 +33,10 @@ function PageHome() {
                     return [...prevArrayFromApi, ...movies.results];
                 });
             }
+            // Once you pull a array, you can set the movie banner here
+            setRandomHeroObject(
+                movies.results?.[Math.floor(Math.random() * 20)]
+            );
         };
         fetchMovies();
     }, [movieFilter, pageNum]);
@@ -101,15 +107,16 @@ function PageHome() {
     ));
 
     // to generate a random hero image
-    let randIndex = Math.floor(Math.random() * 20);
-    const randHero = arrayFromApi?.[randIndex];
+    // Use state to handle this, create a state to hold the random index number,
 
-    const hero = randHero ? (
+    console.log(randomHeroObject);
+
+    const hero = randomHeroObject ? (
         <Hero
-            title={randHero.title}
-            overview={randHero.overview}
-            backdropPath={randHero.backdrop_path}
-            id={randHero.id}
+            title={randomHeroObject.title}
+            overview={randomHeroObject.overview}
+            backdropPath={randomHeroObject.backdrop_path}
+            id={randomHeroObject.id}
         />
     ) : null;
 
