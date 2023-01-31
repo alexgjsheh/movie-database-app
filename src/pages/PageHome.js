@@ -7,11 +7,14 @@ import { useState, useEffect } from "react";
 // import { getItem } from "../utils/lib";
 import isFav from "../utils/isFav";
 import { useSelector } from "react-redux";
+
+import Carousel from "../components/Carousel/Carousel";
+
 const apiKey = "c996a81d85c17dc34079c75c472905fd";
 
 function PageHome() {
-    const [randomHeroObject, setRandomHeroObject] = useState();
-    // const [randHeroObject, setRandomHeroObject] = useState([]);
+    // const [randomHeroObject, setRandomHeroObject] = useState();
+    const [arrayForCarousel, setArrayForCarousel] = useState([]);
     const [arrayFromApi, setArrayFromApi] = useState([]);
     const [movieFilter, setMovieFilter] = useState("popular");
     const [pageNum, setPageNum] = useState(1);
@@ -27,6 +30,11 @@ function PageHome() {
             // problem if this number is higher
             if (pageNum === 1) {
                 setArrayFromApi(movies.results);
+                setArrayForCarousel([
+                    movies.results[0],
+                    movies.results[1],
+                    movies.results[2],
+                ]);
             } else {
                 setArrayFromApi((prevArrayFromApi) => {
                     // spreading the original array and the newly generated one
@@ -34,15 +42,17 @@ function PageHome() {
                 });
             }
             // Once you pull a array, you can set the movie banner here
-            setRandomHeroObject(
-                movies.results?.[Math.floor(Math.random() * 20)]
-            );
+            // setRandomHeroObject(
+            //     movies.results?.[Math.floor(Math.random() * 20)]
+            // );
         };
         fetchMovies();
     }, [movieFilter, pageNum]);
 
     // just for testing
     console.log(arrayFromApi);
+
+    console.log(arrayForCarousel[0]);
 
     // button to change filter
     function handleFilterButton(filter) {
@@ -107,18 +117,17 @@ function PageHome() {
     ));
 
     // to generate a random hero image
-    // Use state to handle this, create a state to hold the random index number,
 
-    console.log(randomHeroObject);
+    // console.log(randomHeroObject);
 
-    const hero = randomHeroObject ? (
-        <Hero
-            title={randomHeroObject.title}
-            overview={randomHeroObject.overview}
-            backdropPath={randomHeroObject.backdrop_path}
-            id={randomHeroObject.id}
-        />
-    ) : null;
+    // const hero = randomHeroObject ? (
+    //     <Hero
+    //         title={randomHeroObject.title}
+    //         overview={randomHeroObject.overview}
+    //         backdropPath={randomHeroObject.backdrop_path}
+    //         id={randomHeroObject.id}
+    //     />
+    // ) : null;
 
     useEffect(() => {
         document.title = `filmsPerSecond - Home`;
@@ -128,31 +137,22 @@ function PageHome() {
 
     return (
         <div className="App">
-            {hero}
-            {/* {randHero ? (
-                <Hero
-                    title={randHero.title}
-                    overview={randHero.overview}
-                    backdropPath={randHero.backdrop_path}
-                    id={randHero.id}
-                />
-            ) : null} */}
-            {/* <Hero
-                title={arrayFromApi?.[randIndex]?.title}
-                overview={arrayFromApi?.[randIndex]?.overview}
-                backdropPath={arrayFromApi?.[randIndex]?.backdrop_path}
-            /> */}
-            <div className="filter-btn-container">
-                {/* {filterBtns.map((item) => (
-                    <FilterBtn
-                        name={item.name}
-                        type={item.type}
-                        handleClick={handleFilterButton}
-                        currentFilter={movieFilter}
-                    />
-                ))} */}
-                {filterBtns}
-            </div>
+            <Carousel
+                title={arrayFromApi[0]?.title}
+                backdropPath={arrayFromApi[0]?.backdrop_path}
+                id={arrayFromApi[0]?.id}
+                overview={arrayFromApi[0]?.overview}
+                title2={arrayFromApi[1]?.title}
+                backdropPath2={arrayFromApi[1]?.backdrop_path}
+                id2={arrayFromApi[1]?.id}
+                overview2={arrayFromApi[1]?.overview}
+                title3={arrayFromApi[2]?.title}
+                backdropPath3={arrayFromApi[2]?.backdrop_path}
+                id3={arrayFromApi[2]?.id}
+                overview3={arrayFromApi[2]?.overview}
+            />
+            {/* {hero} */}
+            <div className="filter-btn-container">{filterBtns}</div>
             <section className="main-content">
                 <div
                     className="movie-card-container"
