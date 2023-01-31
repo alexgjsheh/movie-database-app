@@ -731,6 +731,33 @@ header {
     }
 }
 
+/* page not found page */
+.page-not-found-section {
+    background-color: black;
+    color: white;
+    width: 80%;
+    font-size: 0.8rem;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    height: 72vh;
+    border-radius: 40px;
+}
+
+.page-not-found-heading {
+    font-size: 1.5rem;
+}
+
+@media (min-width: 960px) {
+    .page-not-found-section {
+        font-size: 1rem;
+        line-height: 2rem;
+        padding: 5rem;
+    }
+    .page-not-found-heading {
+        font-size: 1.75rem;
+    }
+}
+
 /* single movie page */
 
 .single-movie-info-container {
