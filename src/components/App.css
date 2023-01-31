@@ -155,7 +155,7 @@ header {
     }
 }
 
-@media (min-width: 640px) {
+@media (min-width: 660px) {
     header {
         justify-content: start;
     }
@@ -296,24 +296,25 @@ header {
     margin: 2rem auto;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 660px) {
     .movie-card-container {
         grid-template-columns: repeat(2, 1fr);
-        gap: 2rem 2rem;
+        gap: 2rem 1.5rem;
         margin: 3rem auto;
     }
 }
 
-@media (min-width: 960px) {
+@media (min-width: 980px) {
     .movie-card-container {
         grid-template-columns: repeat(3, 1fr);
-        gap: 2rem 2rem;
+        gap: 2rem 1.75rem;
     }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1320px) {
     .movie-card-container {
         grid-template-columns: repeat(4, 1fr);
+        gap: 2rem 2rem;
     }
 }
 
@@ -472,7 +473,7 @@ header {
     }
 }
 
-@media (min-width: 960px) {
+@media (min-width: 980px) {
     .more-info-btn {
         padding: 0.75rem 1.5rem;
         border: 3px #64a2de solid;
@@ -569,7 +570,7 @@ header {
     }
 }
 
-@media (min-width: 960px) {
+@media (min-width: 980px) {
     .filter-btn-container {
         width: 52rem;
     }
@@ -646,7 +647,7 @@ header {
     line-height: 1.5rem;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 660px) {
     .hero {
         height: 88vh;
         margin-bottom: 3rem;
@@ -668,7 +669,7 @@ header {
     }
 }
 
-@media (min-width: 960px) {
+@media (min-width: 980px) {
     .hero-overview {
         display: block;
         font-size: 0.9rem;
@@ -707,7 +708,7 @@ header {
     font-size: 1.5rem;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 660px) {
     .about-section {
         background-color: black;
         color: white;
@@ -720,7 +721,7 @@ header {
     }
 }
 
-@media (min-width: 960px) {
+@media (min-width: 980px) {
     .about-section {
         font-size: 1rem;
         line-height: 2rem;
@@ -747,7 +748,7 @@ header {
     font-size: 1.5rem;
 }
 
-@media (min-width: 960px) {
+@media (min-width: 980px) {
     .page-not-found-section {
         font-size: 1rem;
         line-height: 2rem;
@@ -843,7 +844,7 @@ header {
     }
 }
 
-@media (min-width: 640px) {
+@media (min-width: 660px) {
     .single-movie-info-container {
         background-color: black;
         color: white;
@@ -928,7 +929,7 @@ header {
     }
 }
 
-@media (min-width: 960px) {
+@media (min-width: 980px) {
     .single-movie-poster {
         max-width: 310px;
     }
@@ -988,7 +989,7 @@ header {
     margin-top: 2rem;
 }
 
-@media (min-width: 960px) {
+@media (min-width: 980px) {
     .favorite-movies-heading {
         font-size: 1.75rem;
     }
