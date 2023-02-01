@@ -108,7 +108,7 @@
     text-align: center;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 660px) {
     .slick-dots {
         position: absolute;
         bottom: 4.5rem;
