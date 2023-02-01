@@ -69,22 +69,6 @@ function PageHome() {
     }
 
     // generate cards here
-    let cards = arrayFromApi.map((movie, i) => (
-        <Card
-            object={arrayFromApi[i]}
-            key={movie.id}
-            // this returns true or false
-            // fav={favs.includes(movie.id)}
-            id={movie.id}
-            title={movie.title}
-            voteAverage={movie.vote_average}
-            overview={movie.overview}
-            posterPath={movie.poster_path}
-            releaseDate={movie.release_date}
-            isFav={isFav(favs, null, movie.id)}
-            // handleFavoriteClick={handleFavoriteButton}
-        />
-    ));
 
     // filter buttons array
     const filterBtnsArray = [
@@ -134,6 +118,7 @@ function PageHome() {
     }, []);
 
     // const favs = getItem("favorites");
+    // slice original array
 
     return (
         <div className="App">
@@ -158,7 +143,22 @@ function PageHome() {
                     className="movie-card-container"
                     style={{ position: "relative" }}
                 >
-                    {cards}
+                    {arrayFromApi.map((movie, i) => (
+                        <Card
+                            object={arrayFromApi[i]}
+                            key={movie.id}
+                            // this returns true or false
+                            // fav={favs.includes(movie.id)}
+                            id={movie.id}
+                            title={movie.title}
+                            voteAverage={movie.vote_average}
+                            overview={movie.overview}
+                            posterPath={movie.poster_path}
+                            releaseDate={movie.release_date}
+                            isFav={isFav(favs, null, movie.id)}
+                            // handleFavoriteClick={handleFavoriteButton}
+                        />
+                    ))}
                 </div>
                 <MoreMoviesBtn onClick={handleMoreMoviesButton} />
             </section>
