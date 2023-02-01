@@ -1,6 +1,7 @@
 import LogoSvg from "../images/movieDatabaseAppLogo.svg";
 import Nav from "./Nav";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
     const [navOpen, setNavOpen] = useState(false);
@@ -26,11 +27,13 @@ function Header() {
     return (
         <header>
             <h1>
-                <img
-                    className="site-logo"
-                    src={LogoSvg}
-                    alt="Movie Database App Logo"
-                />
+                <Link to="/">
+                    <img
+                        className="site-logo"
+                        src={LogoSvg}
+                        alt="Movie Database App Logo"
+                    />
+                </Link>
             </h1>
             <button className="nav-hamburger-btn" onClick={showHideNav}>
                 <div className={`hamburger ${navOpen ? "is-active" : ""}`}>

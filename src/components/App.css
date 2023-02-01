@@ -708,6 +708,11 @@ header {
     font-size: 1.5rem;
 }
 
+.tmdb-logo {
+    width: 3rem;
+    height: 3rem;
+}
+
 @media (min-width: 660px) {
     .about-section {
         background-color: black;

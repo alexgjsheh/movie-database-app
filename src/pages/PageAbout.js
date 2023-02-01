@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 
+import TmdbLogo from "../images/tmdbLogo.svg";
+
 function PageAbout() {
     useEffect(() => {
         document.title = `filmsPerSecond - About`;
@@ -14,6 +16,11 @@ function PageAbout() {
                     popular, top-rated, and upcoming movies. filmsPerSecond also
                     allows users to track their favorite movies.
                 </p>
+                <p>
+                    This product uses the TMDb API but is not endorsed or
+                    certified by TMDb.
+                </p>
+                <img className="tmdb-logo" src={TmdbLogo} alt="TMDb Logo" />
             </section>
         </>
     );
