@@ -5,18 +5,19 @@ import "./slick.css";
 import "./slick-theme.css";
 
 function Carousel({
-    title,
-    overview,
-    backdropPath,
-    id,
-    title2,
-    overview2,
-    backdropPath2,
-    id2,
-    title3,
-    overview3,
-    backdropPath3,
-    id3,
+    arrayFromApiSliced,
+    // title,
+    // overview,
+    // backdropPath,
+    // id,
+    // title2,
+    // overview2,
+    // backdropPath2,
+    // id2,
+    // title3,
+    // overview3,
+    // backdropPath3,
+    // id3,
 }) {
     const settings = {
         dots: true,
@@ -27,27 +28,32 @@ function Carousel({
         arrows: false,
         cssEase: "ease",
     };
+
+    console.log(arrayFromApiSliced);
     return (
         <div>
             <Slider {...settings}>
-                <div className="hero">
-                    <div className="hero-text">
-                        <h2>{title}</h2>
-                        <p className="hero-overview">{overview}</p>
-                        <Link
-                            className="more-info-btn"
-                            to={`/single-movie/${id}`}
-                        >
-                            More Info
-                        </Link>
+                {arrayFromApiSliced?.map((movie, i) => (
+                    <div className="hero" key={i}>
+                        <div className="hero-text">
+                            <h2>{movie.title}</h2>
+                            <p className="hero-overview">{movie.overview}</p>
+                            <Link
+                                className="more-info-btn"
+                                to={`/single-movie/${movie.id}`}
+                            >
+                                More Info
+                            </Link>
+                        </div>
+                        <img
+                            src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+                            alt="Hero Banner"
+                            className="hero-img"
+                        />
                     </div>
-                    <img
-                        src={`https://image.tmdb.org/t/p/original/${backdropPath}`}
-                        alt="Hero Banner"
-                        className="hero-img"
-                    />
-                </div>
-                <div className="hero">
+                ))}
+
+                {/* <div className="hero">
                     <div className="hero-text">
                         <h2>{title2}</h2>
                         <p className="hero-overview">{overview2}</p>
@@ -80,7 +86,7 @@ function Carousel({
                         alt="Hero Banner"
                         className="hero-img"
                     />
-                </div>
+                </div> */}
             </Slider>
         </div>
     );

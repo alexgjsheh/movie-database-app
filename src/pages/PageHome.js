@@ -14,7 +14,6 @@ const apiKey = "c996a81d85c17dc34079c75c472905fd";
 
 function PageHome() {
     // const [randomHeroObject, setRandomHeroObject] = useState();
-    const [arrayForCarousel, setArrayForCarousel] = useState([]);
     const [arrayFromApi, setArrayFromApi] = useState([]);
     const [movieFilter, setMovieFilter] = useState("popular");
     const [pageNum, setPageNum] = useState(1);
@@ -30,11 +29,6 @@ function PageHome() {
             // problem if this number is higher
             if (pageNum === 1) {
                 setArrayFromApi(movies.results);
-                setArrayForCarousel([
-                    movies.results[0],
-                    movies.results[1],
-                    movies.results[2],
-                ]);
             } else {
                 setArrayFromApi((prevArrayFromApi) => {
                     // spreading the original array and the newly generated one
@@ -51,8 +45,6 @@ function PageHome() {
 
     // just for testing
     console.log(arrayFromApi);
-
-    console.log(arrayForCarousel[0]);
 
     // button to change filter
     function handleFilterButton(filter) {
@@ -118,25 +110,18 @@ function PageHome() {
     }, []);
 
     // const favs = getItem("favorites");
+
     // slice original array
+
+    // let x = arrayFromApi.slice(0, 2);
+    // console.log(x);
 
     return (
         <div className="App">
-            <Carousel
-                title={arrayFromApi[0]?.title}
-                backdropPath={arrayFromApi[0]?.backdrop_path}
-                id={arrayFromApi[0]?.id}
-                overview={arrayFromApi[0]?.overview}
-                title2={arrayFromApi[1]?.title}
-                backdropPath2={arrayFromApi[1]?.backdrop_path}
-                id2={arrayFromApi[1]?.id}
-                overview2={arrayFromApi[1]?.overview}
-                title3={arrayFromApi[2]?.title}
-                backdropPath3={arrayFromApi[2]?.backdrop_path}
-                id3={arrayFromApi[2]?.id}
-                overview3={arrayFromApi[2]?.overview}
-            />
             {/* {hero} */}
+            {arrayFromApi.length && (
+                <Carousel arrayFromApiSliced={arrayFromApi.slice(0, 3)} />
+            )}
             <div className="filter-btn-container">{filterBtns}</div>
             <section className="main-content">
                 <div
