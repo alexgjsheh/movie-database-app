@@ -989,9 +989,9 @@ header {
     }
 }
 
-/* favorite page styling */
+/* favourite page styling */
 
-.favorite-movies-heading {
+.favourite-movies-heading {
     margin-top: 0;
     color: white;
     font-size: 1.5rem;
@@ -1002,7 +1002,7 @@ header {
 }
 
 @media (min-width: 980px) {
-    .favorite-movies-heading {
+    .favourite-movies-heading {
         font-size: 1.75rem;
     }
 }
