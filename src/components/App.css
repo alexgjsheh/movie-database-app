@@ -876,13 +876,13 @@ header {
             "poster info heart";
         grid-template-rows: 4rem 4fr;
         grid-template-columns: 2fr 3fr 2rem;
-        /* gap: 1rem; */
         position: relative;
     }
     .single-movie-header {
         grid-area: title;
         font-size: 1.3rem;
-        align-self: center;
+        margin-top: 1rem;
+        align-self: flex-start;
     }
     .single-movie-poster {
         min-width: 220px;
