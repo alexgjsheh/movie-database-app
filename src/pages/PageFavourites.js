@@ -18,8 +18,8 @@ function PageFavourites() {
                             Favourite Movies
                         </h2>
                         <p>
-                            You have no favourite Movies. Please add some
-                            favourite Movies by clicking the hearts on the home
+                            You have no favourite movies. Please add some
+                            favourite movies by clicking the hearts on the home
                             page.
                         </p>
                     </section>
