@@ -861,7 +861,7 @@ header {
     }
 }
 
-@media (min-width: 660px) {
+@media (min-width: 720px) {
     .single-movie-info-container {
         background-color: black;
         color: white;
@@ -881,6 +881,8 @@ header {
     }
     .single-movie-header {
         grid-area: title;
+        font-size: 1.3rem;
+        align-self: center;
     }
     .single-movie-poster {
         min-width: 220px;
@@ -919,9 +921,6 @@ header {
         right: 0;
         grid-area: heart;
     }
-}
-
-@media (min-width: 720px) {
     .single-movie-poster {
         min-width: 290px;
     }
@@ -935,10 +934,6 @@ header {
 
     .single-movie-general-info {
         font-size: 0.95rem;
-    }
-
-    .single-movie-header {
-        font-size: 1.3rem;
     }
 
     .single-movie-overview-header {
