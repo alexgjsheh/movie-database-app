@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 function Header() {
     const [navOpen, setNavOpen] = useState(false);
 
-    // LEARN THIS STUFF LATER
+    // toggle navigation
     const showHideNav = () => {
         setNavOpen(!navOpen);
     };
@@ -20,7 +20,7 @@ function Header() {
     useEffect(() => {
         let mediaQuery = window.matchMedia("(min-width: 600px)");
         mediaQuery.addEventListener("change", isDesktop);
-        // this is the cleanup function to remove the listener
+        // cleanup function to remove the listener
         return () => mediaQuery.removeEventListener("change", isDesktop);
     }, []);
 

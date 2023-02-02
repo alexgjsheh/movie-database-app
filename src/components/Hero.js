@@ -6,9 +6,6 @@ function Hero({ id, title, overview, backdropPath }) {
             <div className="hero-text">
                 <h2>{title}</h2>
                 <p className="hero-overview">{overview}</p>
-                {/* <a className="more-info-btn" href="#">
-                    More Info
-                </a> */}
                 <Link className="more-info-btn" to={`/single-movie/${id}`}>
                     More Info
                 </Link>

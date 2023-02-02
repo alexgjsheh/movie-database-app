@@ -157,7 +157,7 @@ header {
 
 @media (min-width: 660px) {
     header {
-        justify-content: start;
+        justify-content: flex-start;
     }
     .site-logo {
         width: 12rem;
@@ -177,7 +177,7 @@ header {
     .navigation-links {
         display: flex;
         flex-direction: row;
-        justify-content: start;
+        justify-content: flex-start;
         align-items: center;
         margin: 0 0 0 1rem;
         gap: 0.5rem;
@@ -899,7 +899,7 @@ header {
     }
     .single-movie-bottom-container {
         grid-area: info;
-        align-self: start;
+        align-self: flex-start;
     }
     .single-movie-page-heart {
         position: absolute;

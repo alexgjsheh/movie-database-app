@@ -39,7 +39,7 @@ function Card({
             <img
                 className={`movie-card-image ${hover ? "darken" : ""}`}
                 src={"https://image.tmdb.org/t/p/w500" + posterPath}
-                alt="Movie Image"
+                alt="Movie Poster"
             />
             <div className={`movie-hover ${hover ? "hovered" : ""}`}>
                 <div className="btn-favourite">
