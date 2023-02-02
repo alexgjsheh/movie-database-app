@@ -31,12 +31,23 @@ function Card({
         }
     }
 
+    // handles mobile clicking functionality
+    function handleMobileClick(e) {
+        if (hover) {
+            setClick(false);
+        } else if (e.target.className === "heart") {
+            setClick(true);
+        } else {
+            setClick(!clicked);
+        }
+    }
+
     return (
         <article
             className="movie-card"
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
-            onClick={() => setClick(!clicked)}
+            onClick={handleMobileClick}
         >
             <img
                 className={`movie-card-image ${
@@ -45,7 +56,10 @@ function Card({
                 src={"https://image.tmdb.org/t/p/w500" + posterPath}
                 alt="Movie Poster"
             />
-            <div className={`movie-hover ${hover || clicked ? "hovered" : ""}`}>
+            <div
+                className={`movie-hover ${hover || clicked ? "hovered" : ""}`}
+                onClick={handleMobileClick}
+            >
                 <div className="btn-favourite">
                     {isFav ? (
                         <FavButton
