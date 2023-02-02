@@ -17,6 +17,7 @@ function Card({
 }) {
     // button to change filter
     const [hover, setHover] = useState(false);
+    const [clicked, setClick] = useState(false);
 
     const dispatch = useDispatch();
 
@@ -35,13 +36,16 @@ function Card({
             className="movie-card"
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
+            onClick={() => setClick(!clicked)}
         >
             <img
-                className={`movie-card-image ${hover ? "darken" : ""}`}
+                className={`movie-card-image ${
+                    hover || clicked ? "darken" : ""
+                }`}
                 src={"https://image.tmdb.org/t/p/w500" + posterPath}
                 alt="Movie Poster"
             />
-            <div className={`movie-hover ${hover ? "hovered" : ""}`}>
+            <div className={`movie-hover ${hover || clicked ? "hovered" : ""}`}>
                 <div className="btn-favourite">
                     {isFav ? (
                         <FavButton
