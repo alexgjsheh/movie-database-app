@@ -8,6 +8,8 @@ import { useDispatch } from "react-redux";
 import { addFav, deleteFav } from "../features/favs/favsSlice";
 import { useSelector } from "react-redux";
 
+import PlaceholderImg from "../images/theQuintessentialQuintupletsMovie.jpeg";
+
 const apiKey = "c996a81d85c17dc34079c75c472905fd";
 
 function PageSingle({ isFav }) {
@@ -76,8 +78,10 @@ function PageSingle({ isFav }) {
                 <img
                     className="single-movie-poster"
                     src={
-                        "https://image.tmdb.org/t/p/w500" +
                         singleMovieObject.poster_path
+                            ? "https://image.tmdb.org/t/p/w500" +
+                              singleMovieObject.poster_path
+                            : PlaceholderImg
                     }
                     alt="Movie Poster"
                 />

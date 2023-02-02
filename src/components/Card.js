@@ -2,6 +2,7 @@ import { useState } from "react";
 import FavButton from "./FavButton";
 import { useDispatch } from "react-redux";
 import { addFav, deleteFav } from "../features/favs/favsSlice";
+import PlaceholderImg from "../images/theQuintessentialQuintupletsMovie.jpeg";
 
 import { Link } from "react-router-dom";
 
@@ -54,7 +55,11 @@ function Card({
                     className={`movie-card-image ${
                         hover || clicked ? "darken" : ""
                     }`}
-                    src={"https://image.tmdb.org/t/p/w500" + posterPath}
+                    src={
+                        posterPath
+                            ? "https://image.tmdb.org/t/p/w500" + posterPath
+                            : PlaceholderImg
+                    }
                     alt="Movie Poster"
                 />
             </div>
