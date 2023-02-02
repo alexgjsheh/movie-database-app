@@ -2,7 +2,7 @@ import { useState } from "react";
 import FavButton from "./FavButton";
 import { useDispatch } from "react-redux";
 import { addFav, deleteFav } from "../features/favs/favsSlice";
-import PlaceholderImg from "../images/theQuintessentialQuintupletsMovie.jpeg";
+import PlaceholderImg from "../images/placeholderImage.jpg";
 
 import { Link } from "react-router-dom";
 

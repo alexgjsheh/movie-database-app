@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { addFav, deleteFav } from "../features/favs/favsSlice";
 import { useSelector } from "react-redux";
 
-import PlaceholderImg from "../images/theQuintessentialQuintupletsMovie.jpeg";
+import PlaceholderImg from "../images/placeholderImage.jpg";
 
 const apiKey = "c996a81d85c17dc34079c75c472905fd";
 
