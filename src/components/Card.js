@@ -30,17 +30,6 @@ function Card({
         }
     }
 
-    // function handleFavoriteButton2() {
-    //     if (isLiked) {
-    //         const movieString = JSON.stringify(object);
-    //         const originData = getItem("favorites");
-    //         // originData.push();
-    //         localStorage.setItem("favorites", movieString);
-    //     } else if (!isLiked) {
-    //         localStorage.removeItem(id);
-    //     }
-    // }
-
     return (
         <article
             className="movie-card"
@@ -64,10 +53,6 @@ function Card({
                     )}
                 </div>
                 <p className="movie-overview">{overview}</p>
-                {/* <a className="more-info-btn" href="#">
-                    More Info
-                </a> */}
-
                 {/* adding the movie id to the link as aN URL parameter */}
                 <Link className="more-info-btn" to={`/single-movie/${id}`}>
                     More Info
@@ -76,7 +61,7 @@ function Card({
             <div className="movie-info-container">
                 <p className="movie-title">{title}</p>
                 <p>{releaseDate}</p>
-                <p>{`${Math.trunc(voteAverage * 10)}%`}</p>
+                <p>{`${Math.round(voteAverage * 10)}%`}</p>
             </div>
         </article>
     );
