@@ -4,21 +4,7 @@ import { Link } from "react-router-dom";
 import "./slick.css";
 import "./slick-theme.css";
 
-function Carousel({
-    arrayFromApiSliced,
-    // title,
-    // overview,
-    // backdropPath,
-    // id,
-    // title2,
-    // overview2,
-    // backdropPath2,
-    // id2,
-    // title3,
-    // overview3,
-    // backdropPath3,
-    // id3,
-}) {
+function Carousel({ arrayFromApiSliced }) {
     const settings = {
         dots: true,
         infinite: true,
