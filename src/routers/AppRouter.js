@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // Pages
 import PageHome from "../pages/PageHome";
 import PageAbout from "../pages/PageAbout";
-import PageFavorites from "../pages/PageFavorites";
+import PageFavourites from "../pages/PageFavourites";
 import PageSingle from "../pages/PageSingle";
 import PageNotFound from "../pages/PageNotFound";
 import "../components/App.css";
@@ -20,7 +20,10 @@ function AppRouter() {
                     <Routes>
                         <Route path="/" exact element={<PageHome />} />
                         <Route path="/about" element={<PageAbout />} />
-                        <Route path="/favorites" element={<PageFavorites />} />
+                        <Route
+                            path="/favourites"
+                            element={<PageFavourites />}
+                        />
                         <Route
                             path="/single-movie/:id"
                             element={<PageSingle />}
@@ -35,46 +38,3 @@ function AppRouter() {
 }
 
 export default AppRouter;
-
-// camel case prop names
-// props that pass functions use onclick, actual function name uses the word handle
-
-// import "../components/App.css";
-
-// // Router Components
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-// // Components
-// import Navbar from "../components/Navbar";
-// import Footer from "../components/Footer";
-
-// // Pages
-// import PageHome from "../pages/PageHome";
-// import PageAbout from "../pages/PageAbout";
-// import PageFavorites from "../pages/PageFavorites";
-// import PageSingle from "../pages/PageSingle";
-
-// function AppRouter() {
-//     return (
-//         <BrowserRouter>
-//             <div className="wrapper">
-//                 <Navbar />
-//                 <main>
-// <Routes>
-//     <Route path="/" exact element={<PageHome />} />
-//     <Route path="/about" exact element={<PageAbout />} />
-//     <Route
-//         path="/favorites"
-//         exact
-//         element={<PageFavorites />}
-//     />
-//     <Route path="/single" exact element={<PageSingle />} />
-// </Routes>
-//                 </main>
-//                 <Footer />
-//             </div>
-//         </BrowserRouter>
-//     );
-// }
-
-// export default AppRouter;

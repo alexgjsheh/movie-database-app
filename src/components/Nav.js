@@ -22,7 +22,7 @@ function Nav({ handleShowHideNav, navOpen }) {
                     <NavLink to="/about">About</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/favorites">Favorites</NavLink>
+                    <NavLink to="/favourites">Favourites</NavLink>
                 </li>
             </ul>
         </nav>

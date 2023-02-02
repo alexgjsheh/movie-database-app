@@ -109,8 +109,6 @@ function PageHome() {
         document.title = `filmsPerSecond - Home`;
     }, []);
 
-    // const favs = getItem("favorites");
-
     // slice original array
 
     // let x = arrayFromApi.slice(0, 2);
@@ -141,7 +139,6 @@ function PageHome() {
                             posterPath={movie.poster_path}
                             releaseDate={movie.release_date}
                             isFav={isFav(favs, null, movie.id)}
-                            // handleFavoriteClick={handleFavoriteButton}
                         />
                     ))}
                 </div>
