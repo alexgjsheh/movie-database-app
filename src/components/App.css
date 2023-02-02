@@ -124,6 +124,7 @@ header {
 
 .navigation-links li {
     width: 100%;
+    transition: background-color 0.5s;
 }
 
 .navigation-links a {
@@ -132,6 +133,7 @@ header {
     text-decoration: none;
     color: white;
     font-size: 1.25rem;
+    transition: color 0.5s;
 }
 
 .show-nav-menu {
@@ -193,9 +195,6 @@ header {
     .nav-hamburger-btn {
         display: none;
     }
-    .navigation-bar li:hover {
-        background-color: none;
-    }
 }
 
 /* desktop */
@@ -206,11 +205,11 @@ header {
     padding: 0.5rem 1.25rem;
 } */
 
-.navigation-bar a:hover {
+.navigation-links a:hover {
     color: #64a2de;
 }
 
-.navigation-bar li:hover {
+.navigation-links li:hover {
     background-color: rgba(145, 146, 147, 0.3);
 }
 
@@ -401,18 +400,19 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    overflow: hidden;
-    text-overflow: ellipsis;
     text-align: left;
 }
 
 .movie-overview {
-    overflow: hidden;
     margin: 2.5rem 0 0 0;
-    flex-grow: 1;
+    width: 100%;
+    height: 100%;
     z-index: 2;
-    text-overflow: ellipsis;
     font-size: 0.9rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 10;
+    overflow: hidden;
 }
 
 .hovered {
@@ -450,6 +450,7 @@ header {
     }
     .movie-overview {
         font-size: 1rem;
+        -webkit-line-clamp: 11;
     }
 }
 
@@ -466,6 +467,11 @@ header {
     z-index: 2;
     margin: 1rem 0rem 1.25rem 0rem;
     display: inline-block;
+    transition: border 0.5s;
+}
+/* carousel more info btn */
+.carousel {
+    margin: 0;
 }
 
 .more-info-btn:hover {
@@ -487,6 +493,10 @@ header {
     }
     .more-info-btn:hover {
         border: 3px solid #9f386d;
+    }
+    .movie-overview {
+        font-size: 1rem;
+        -webkit-line-clamp: 10;
     }
 }
 
@@ -515,6 +525,7 @@ header {
     margin: 0;
     width: 7rem;
     cursor: pointer;
+    transition: border 0.5s;
     /* flex: 0 0 auto; */
 }
 
@@ -523,9 +534,7 @@ header {
 }
 
 .filter-btn:hover,
-.filter-btn:focus,
-.more-movies-btn:hover,
-.more-movies-btn:focus {
+.more-movies-btn:hover {
     border: 2px solid #9f386d;
 }
 
@@ -566,9 +575,7 @@ header {
         margin-bottom: 1.5rem;
     }
     .filter-btn:hover,
-    .filter-btn:focus,
-    .more-movies-btn:hover,
-    .more-movies-btn:focus {
+    .more-movies-btn:hover {
         border: 3px solid #9f386d;
     }
 
@@ -595,9 +602,7 @@ header {
         margin-bottom: 3rem;
     }
     .filter-btn:hover,
-    .filter-btn:focus,
-    .more-movies-btn:hover,
-    .more-movies-btn:focus {
+    .more-movies-btn:hover {
         border: 3.5px solid #9f386d;
     }
 
@@ -627,10 +632,6 @@ header {
     margin: 0.25rem 0 0 0;
 }
 
-.hero-overview {
-    display: none;
-}
-
 .hero-text {
     position: absolute;
     bottom: 3vh;
@@ -645,13 +646,12 @@ header {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .hero-overview {
     margin: 0;
     line-height: 1.5rem;
+    display: none;
 }
 
 @media (min-width: 660px) {
@@ -663,11 +663,15 @@ header {
         max-height: 88vh;
     }
     .hero-overview {
-        display: block;
         font-size: 0.8rem;
+        height: 4.8rem;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
     }
     .hero-text {
-        height: 18rem;
+        height: 14rem;
         bottom: 7vh;
     }
     .hero h2 {
@@ -677,8 +681,11 @@ header {
 }
 
 @media (min-width: 980px) {
+    .hero-text {
+        height: 15rem;
+        bottom: 7vh;
+    }
     .hero-overview {
-        display: block;
         font-size: 0.9rem;
         line-height: 1.5rem;
     }

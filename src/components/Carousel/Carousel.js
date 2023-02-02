@@ -39,7 +39,7 @@ function Carousel({
                             <h2>{movie.title}</h2>
                             <p className="hero-overview">{movie.overview}</p>
                             <Link
-                                className="more-info-btn"
+                                className="more-info-btn carousel"
                                 to={`/single-movie/${movie.id}`}
                             >
                                 More Info
