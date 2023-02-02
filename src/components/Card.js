@@ -13,7 +13,6 @@ function Card({
     overview,
     posterPath,
     releaseDate,
-    movieObj,
     isFav,
 }) {
     // button to change filter
@@ -57,13 +56,11 @@ function Card({
                 <div className="btn-favourite">
                     {isFav ? (
                         <FavButton
-                            movieObj={movieObj}
                             remove={true}
                             handleFavClick={handleFavClick}
                         />
                     ) : (
                         <FavButton
-                            movieObj={movieObj}
                             handleFavClick={handleFavClick}
                         />
                     )}

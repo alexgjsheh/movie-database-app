@@ -1,14 +1,39 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
-import unfilledHeart from "../images/unfilledHeart.svg";
-import filledHeart from "../images/filledHeart.svg";
 import { toHoursAndMinutes } from "../utils/lib";
+
+import FavButton from "../components/FavButton";
+import { useDispatch } from "react-redux";
+import { addFav, deleteFav } from "../features/favs/favsSlice";
+import { useSelector } from "react-redux";
 
 const apiKey = "c996a81d85c17dc34079c75c472905fd";
 
-function PageSingle() {
+function PageSingle({isFav}) {
     const [singleMovieObject, setSingleMovieObject] = useState({});
+    
+    const favs = useSelector((state) => state.favs.items);
+
+    const dispatch = useDispatch();
+
+    function handleFavClick(addToFav) {
+        if (addToFav === true) {
+            console.log(singleMovieObject);
+            dispatch(addFav(singleMovieObject));
+        } else {
+            console.log(singleMovieObject);
+            dispatch(deleteFav(singleMovieObject));
+        }
+    }
+
+    for (let index = 0; index < favs.length; index++) {
+        if (favs[index].id === singleMovieObject.id) {
+            isFav = true;
+        } else {
+            isFav = false;
+        }
+    }
 
     useEffect(() => {
         document.title = `filmsPerSecond - Single Movie`;
@@ -39,8 +64,8 @@ function PageSingle() {
         }
     }
 
-    console.log(genres);
 
+    
     // use curly braces + && for image path to prevent the current error
     return (
         <section className="single-movie-info-container">
@@ -58,11 +83,19 @@ function PageSingle() {
                     }
                     alt="Movie Poster"
                 />
-                <img
-                    className="single-movie-page-heart"
-                    src={filledHeart}
-                    alt="Heart Image"
-                />
+                                <div className="btn-favourite">
+
+                    {isFav ? (
+                        <FavButton
+                            remove={true}
+                            handleFavClick={handleFavClick}
+                        />
+                    ) : (
+                        <FavButton
+                            handleFavClick={handleFavClick}
+                        />
+                    )}
+                </div>
             </div>
             {/* rename this class to something better later */}
 
@@ -76,6 +109,7 @@ function PageSingle() {
                     {singleMovieObject.overview}
                 </p>
             </div>
+
         </section>
     );
 }
