@@ -1,6 +1,5 @@
 import "../components/App.css";
 import Card from "../components/Card";
-import Hero from "../components/Hero";
 import FilterBtn from "../components/FilterBtn";
 import MoreMoviesBtn from "../components/MoreMoviesBtn";
 import { useState, useEffect } from "react";
@@ -23,7 +22,6 @@ function PageHome() {
         const fetchMovies = async () => {
             const data = await fetch(
                 `https://api.themoviedb.org/3/movie/${movieFilter}?api_key=${apiKey}&language=en-US&page=${pageNum}`
-                // `https://api.themoviedb.org/3/movie/${movieFilter}?api_key=${apiKey}`
             );
             const movies = await data.json();
             // problem if this number is higher
