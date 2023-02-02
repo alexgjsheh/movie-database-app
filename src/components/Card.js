@@ -60,9 +60,7 @@ function Card({
                             handleFavClick={handleFavClick}
                         />
                     ) : (
-                        <FavButton
-                            handleFavClick={handleFavClick}
-                        />
+                        <FavButton handleFavClick={handleFavClick} />
                     )}
                 </div>
                 <p className="movie-overview">{overview}</p>
@@ -78,7 +76,7 @@ function Card({
             <div className="movie-info-container">
                 <p className="movie-title">{title}</p>
                 <p>{releaseDate}</p>
-                <p>{`${voteAverage * 10}%`}</p>
+                <p>{`${Math.trunc(voteAverage * 10)}%`}</p>
             </div>
         </article>
     );
