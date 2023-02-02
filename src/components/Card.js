@@ -49,13 +49,16 @@ function Card({
             onMouseLeave={() => setHover(false)}
             onClick={handleMobileClick}
         >
-            <img
-                className={`movie-card-image ${
-                    hover || clicked ? "darken" : ""
-                }`}
-                src={"https://image.tmdb.org/t/p/w500" + posterPath}
-                alt="Movie Poster"
-            />
+            <div className="movie-card-image-wrapper">
+                <img
+                    className={`movie-card-image ${
+                        hover || clicked ? "darken" : ""
+                    }`}
+                    src={"https://image.tmdb.org/t/p/w500" + posterPath}
+                    alt="Movie Poster"
+                />
+            </div>
+
             <div
                 className={`movie-hover ${hover || clicked ? "hovered" : ""}`}
                 onClick={handleMobileClick}
@@ -70,7 +73,11 @@ function Card({
                         <FavButton handleFavClick={handleFavClick} />
                     )}
                 </div>
-                <p className="movie-overview">{overview}</p>
+                <p className="movie-overview">
+                    {overview
+                        ? overview
+                        : "Movie overview is unavailable at the moment."}
+                </p>
                 {/* adding the movie id to the link as aN URL parameter */}
                 <Link className="more-info-btn" to={`/single-movie/${id}`}>
                     More Info

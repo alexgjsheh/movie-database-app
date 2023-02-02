@@ -99,7 +99,9 @@ function PageSingle({ isFav }) {
                 </p>
                 <h3 className="single-movie-overview-header">Overview</h3>
                 <p className="single-movie-overview">
-                    {singleMovieObject.overview}
+                    {singleMovieObject.overview
+                        ? singleMovieObject.overview
+                        : "Movie overview is unvailable at the moment."}
                 </p>
             </div>
         </section>
