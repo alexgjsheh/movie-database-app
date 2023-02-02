@@ -14,7 +14,7 @@ function PageAbout() {
                     filmsPerSecond is an online movie database application that
                     allows users to browse and view detailed information about
                     popular, top-rated, and upcoming movies. filmsPerSecond also
-                    allows users to track their favorite movies.
+                    allows users to track their favourite movies.
                 </p>
                 <p>
                     This product uses the TMDb API but is not endorsed or
