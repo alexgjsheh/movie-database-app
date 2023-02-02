@@ -3,16 +3,16 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { toHoursAndMinutes } from "../utils/lib";
 
-import FavButton from "../components/FavButton";
+import FavButtonSingle from "../components/FavButtonSingle";
 import { useDispatch } from "react-redux";
 import { addFav, deleteFav } from "../features/favs/favsSlice";
 import { useSelector } from "react-redux";
 
 const apiKey = "c996a81d85c17dc34079c75c472905fd";
 
-function PageSingle({isFav}) {
+function PageSingle({ isFav }) {
     const [singleMovieObject, setSingleMovieObject] = useState({});
-    
+
     const favs = useSelector((state) => state.favs.items);
 
     const dispatch = useDispatch();
@@ -64,8 +64,6 @@ function PageSingle({isFav}) {
         }
     }
 
-
-    
     // use curly braces + && for image path to prevent the current error
     return (
         <section className="single-movie-info-container">
@@ -83,19 +81,14 @@ function PageSingle({isFav}) {
                     }
                     alt="Movie Poster"
                 />
-                                <div className="btn-favourite">
-
-                    {isFav ? (
-                        <FavButton
-                            remove={true}
-                            handleFavClick={handleFavClick}
-                        />
-                    ) : (
-                        <FavButton
-                            handleFavClick={handleFavClick}
-                        />
-                    )}
-                </div>
+                {isFav ? (
+                    <FavButtonSingle
+                        remove={true}
+                        handleFavClick={handleFavClick}
+                    />
+                ) : (
+                    <FavButtonSingle handleFavClick={handleFavClick} />
+                )}
             </div>
             {/* rename this class to something better later */}
 
@@ -109,7 +102,6 @@ function PageSingle({isFav}) {
                     {singleMovieObject.overview}
                 </p>
             </div>
-
         </section>
     );
 }
