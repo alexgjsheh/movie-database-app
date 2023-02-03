@@ -1,8 +1,3 @@
-export const getItem = (key) => {
-    const originData = localStorage.getItem(key);
-    return JSON.parse(originData);
-};
-
 // function to dynamically generate year
 export const getDate = () => {
     const date = new Date();

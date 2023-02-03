@@ -3,7 +3,6 @@ import Card from "../components/Card";
 import FilterBtn from "../components/FilterBtn";
 import MoreMoviesBtn from "../components/MoreMoviesBtn";
 import { useState, useEffect } from "react";
-// import { getItem } from "../utils/lib";
 import isFav from "../utils/isFav";
 import { useSelector } from "react-redux";
 
