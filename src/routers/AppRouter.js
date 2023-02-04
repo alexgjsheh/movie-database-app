@@ -11,10 +11,15 @@ import "../components/App.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
+import backgroundImg from "../images/starBackground.png";
+
 function AppRouter() {
     return (
         <BrowserRouter>
-            <div className="App">
+            <div
+                className="App"
+                style={{ backgroundImage: `url(${backgroundImg})` }}
+            >
                 <Header />
                 <main>
                     <Routes>

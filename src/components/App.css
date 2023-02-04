@@ -703,9 +703,10 @@ header {
     justify-content: center;
 }
 
-/* about page styling */
+/* about page + favorite page styling */
 
-.about-section {
+.about-section,
+.favorite-section {
     background-color: black;
     color: white;
     width: 80%;
@@ -726,7 +727,8 @@ header {
 }
 
 @media (min-width: 660px) {
-    .about-section {
+    .about-section,
+    .favorite-section {
         background-color: black;
         color: white;
         width: 70%;
@@ -739,7 +741,8 @@ header {
 }
 
 @media (min-width: 980px) {
-    .about-section {
+    .about-section,
+    .favorite-section {
         font-size: 1rem;
         line-height: 2rem;
         padding: 5rem;
@@ -765,12 +768,26 @@ header {
     font-size: 1.5rem;
 }
 
+@media (min-width: 660px) {
+    .page-not-found-section {
+        background-color: black;
+        color: white;
+        width: 70%;
+        font-size: 0.9rem;
+        line-height: 1.5rem;
+        padding: 3rem;
+        height: 70vh;
+        border-radius: 40px;
+    }
+}
+
 @media (min-width: 980px) {
     .page-not-found-section {
         font-size: 1rem;
         line-height: 2rem;
         padding: 5rem;
     }
+
     .page-not-found-heading {
         font-size: 1.75rem;
     }

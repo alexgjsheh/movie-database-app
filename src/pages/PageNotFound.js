@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import backgroundImg from "../images/starBackground.png";
 
 function PageNotFound() {
     useEffect(() => {
