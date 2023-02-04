@@ -72,9 +72,13 @@ function PageSingle({ isFav }) {
             <h2 className="single-movie-header">{singleMovieObject.title}</h2>
             {/* rename this class to something better later */}
             <div className="single-movie-top-container">
-                <p className="single-movie-rating">{`${Math.round(
-                    singleMovieObject.vote_average * 10
-                )}%`}</p>
+                <p
+                    className={`single-movie-rating ${
+                        singleMovieObject.vote_average > 5
+                            ? "good-rating-single"
+                            : "bad-rating-single"
+                    }`}
+                >{`${Math.round(singleMovieObject.vote_average * 10)}%`}</p>
                 <img
                     className="single-movie-poster"
                     src={

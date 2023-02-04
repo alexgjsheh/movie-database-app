@@ -1009,6 +1009,21 @@ header {
 
 /* rating color classes */
 
-.red {
-    color: red;
+.bad-rating {
+    color: #9f386d;
+    font-weight: bold;
+}
+
+.good-rating {
+    color: #64a2de;
+    font-weight: bold;
+}
+
+.bad-rating-single {
+    background-color: #9f386d;
+    border: #9f386d 2px solid;
+}
+
+.good-rating-single {
+    background-color: #64a2de;
 }
