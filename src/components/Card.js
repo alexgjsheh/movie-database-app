@@ -91,7 +91,9 @@ function Card({
             <div className="movie-info-container">
                 <p className="movie-title">{title}</p>
                 <p>{releaseDate}</p>
-                <p>{`${Math.round(voteAverage * 10)}%`}</p>
+                <p className={voteAverage < 5 ? "red" : ""}>{`${Math.round(
+                    voteAverage * 10
+                )}%`}</p>
             </div>
         </article>
     );
