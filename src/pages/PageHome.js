@@ -106,11 +106,6 @@ function PageHome() {
         document.title = `filmsPerSecond - Home`;
     }, []);
 
-    // slice original array
-
-    // let x = arrayFromApi.slice(0, 2);
-    // console.log(x);
-
     return (
         <div className="App">
             {/* {hero} */}
@@ -127,8 +122,6 @@ function PageHome() {
                         <Card
                             object={arrayFromApi[i]}
                             key={movie.id}
-                            // this returns true or false
-                            // fav={favs.includes(movie.id)}
                             id={movie.id}
                             title={movie.title}
                             voteAverage={movie.vote_average}
