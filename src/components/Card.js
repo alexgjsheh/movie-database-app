@@ -18,7 +18,7 @@ function Card({
 }) {
     // button to change filter
     const [hover, setHover] = useState(false);
-    const [clicked, setClick] = useState(false);
+    const [clicked, setClicked] = useState(false);
 
     const dispatch = useDispatch();
 
@@ -34,12 +34,12 @@ function Card({
 
     // handles mobile clicking functionality
     function handleMobileClick(e) {
-        if (hover) {
-            setClick(false);
-        } else if (e.target.className === "heart") {
-            setClick(true);
-        } else {
-            setClick(!clicked);
+        if (e.target.className === "movie-card-image ") {
+            setClicked(true);
+            setHover(false);
+        } else if (e.target.className === "movie-overview") {
+            setClicked(!clicked);
+            setHover(false);
         }
     }
 
@@ -64,10 +64,7 @@ function Card({
                 />
             </div>
 
-            <div
-                className={`movie-hover ${hover || clicked ? "hovered" : ""}`}
-                onClick={handleMobileClick}
-            >
+            <div className={`movie-hover ${hover || clicked ? "hovered" : ""}`}>
                 <div className="btn-favourite">
                     {isFav ? (
                         <FavButton

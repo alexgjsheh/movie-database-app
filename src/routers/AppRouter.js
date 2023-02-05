@@ -15,7 +15,7 @@ import backgroundImg from "../images/starBackground.png";
 
 function AppRouter() {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={"/filmspersecond"}>
             <div
                 className="App"
                 style={{ backgroundImage: `url(${backgroundImg})` }}

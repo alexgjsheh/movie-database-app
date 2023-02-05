@@ -330,7 +330,7 @@ header {
     display: flex;
     flex-direction: column;
     position: relative;
-    transition: height 1s;
+    /* transition: height 1s; */
 }
 
 .movie-card-image-wrapper {
@@ -342,6 +342,8 @@ header {
 
 .movie-card-image {
     width: 100%;
+    /* added */
+    height: 100%;
     object-fit: cover;
     transition: transform 0.8s;
 }
