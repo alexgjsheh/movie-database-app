@@ -1029,7 +1029,9 @@ header {
         max-height: 100%;
         justify-content: center;
     }
-
+    .single-movie-header {
+        font-size: 1.5rem;
+    }
     .single-movie-page-heart {
         right: 0.8rem;
     }
