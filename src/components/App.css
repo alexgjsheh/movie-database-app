@@ -894,7 +894,7 @@ header {
         display: grid;
         grid-template-areas:
             "poster rating title heart"
-            "poster info info heart";
+            "poster info info info";
         grid-template-rows: 4rem 4fr;
         grid-template-columns: 2fr 3rem 3fr 2rem;
         position: relative;
