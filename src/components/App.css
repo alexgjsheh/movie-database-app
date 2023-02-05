@@ -348,7 +348,6 @@ header {
     height: 100%;
     object-fit: cover;
     transition: transform 0.8s;
-    z-index: -2;
 }
 
 .movie-info-container {
