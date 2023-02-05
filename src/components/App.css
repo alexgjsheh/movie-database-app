@@ -338,6 +338,8 @@ header {
     height: 72%;
     border-top-left-radius: 32px;
     border-top-right-radius: 32px;
+    /* z-index: 0 fixed the issue on mobile where image transition would cause top corners to expand past the parent container */
+    z-index: 0;
 }
 
 .movie-card-image {
@@ -346,6 +348,7 @@ header {
     height: 100%;
     object-fit: cover;
     transition: transform 0.8s;
+    z-index: -2;
 }
 
 .movie-info-container {
