@@ -9,11 +9,13 @@ import { addFav, deleteFav } from "../features/favs/favsSlice";
 import { useSelector } from "react-redux";
 
 import PlaceholderImg from "../images/placeholderImage.jpg";
+import CastPlaceholderImg from "../images/castPlaceholderImage.jpg";
 
 const apiKey = "c996a81d85c17dc34079c75c472905fd";
 
 function PageSingle({ isFav }) {
     const [singleMovieObject, setSingleMovieObject] = useState({});
+    const [castMembersObject, setCastMembersObject] = useState({});
 
     const favs = useSelector((state) => state.favs.items);
 
@@ -50,9 +52,15 @@ function PageSingle({ isFav }) {
                 `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`
             );
             const movie = await data.json();
+            const data2 = await fetch(
+                `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${apiKey}&language=en-US`
+            );
+            const movie2 = await data2.json();
             console.log(movie);
+            console.log(movie2.cast);
             // saving movie object
             setSingleMovieObject(movie);
+            setCastMembersObject(movie2.cast);
         };
         fetchMovies();
     }, [id]);
@@ -111,6 +119,83 @@ function PageSingle({ isFav }) {
                         ? singleMovieObject.overview
                         : "Movie overview is unvailable at the moment."}
                 </p>
+            </div>
+            <div className="cast-members-container">
+                <h3 className="single-movie-cast-members-header">
+                    Cast Members
+                </h3>
+                <div className="cast-member">
+                    <img
+                        src={
+                            castMembersObject[0]?.profile_path
+                                ? "https://image.tmdb.org/t/p/w500" +
+                                  castMembersObject[0].profile_path
+                                : CastPlaceholderImg
+                        }
+                        alt="Cast Member"
+                        class="cast-member-image"
+                    />
+                    <p className="cast-member-name">
+                        {castMembersObject[0]?.name}
+                    </p>
+                    <p className="cast-member-role">
+                        {castMembersObject[0]?.character}
+                    </p>
+                </div>
+                <div className="cast-member">
+                    <img
+                        src={
+                            castMembersObject[1]?.profile_path
+                                ? "https://image.tmdb.org/t/p/w500" +
+                                  castMembersObject[1].profile_path
+                                : CastPlaceholderImg
+                        }
+                        alt="Cast Member"
+                        class="cast-member-image"
+                    />
+                    <p className="cast-member-name">
+                        {castMembersObject[1]?.name}
+                    </p>
+                    <p className="cast-member-role">
+                        {castMembersObject[1]?.character}
+                    </p>
+                </div>
+                <div className="cast-member">
+                    <img
+                        src={
+                            castMembersObject[2]?.profile_path
+                                ? "https://image.tmdb.org/t/p/w500" +
+                                  castMembersObject[2].profile_path
+                                : CastPlaceholderImg
+                        }
+                        alt="Cast Member"
+                        class="cast-member-image"
+                    />
+                    <p className="cast-member-name">
+                        {castMembersObject[2]?.name}
+                    </p>
+                    <p className="cast-member-role">
+                        {castMembersObject[2]?.character}
+                    </p>
+                </div>
+                <div className="cast-member">
+                    <img
+                        src={
+                            castMembersObject[3]?.profile_path
+                                ? "https://image.tmdb.org/t/p/w500" +
+                                  castMembersObject[3].profile_path
+                                : CastPlaceholderImg
+                        }
+                        alt="Cast Member"
+                        class="cast-member-image"
+                    />
+                    <p className="cast-member-name">
+                        {castMembersObject[3]?.name}
+                    </p>
+                    <p className="cast-member-role">
+                        {castMembersObject[3]?.character}
+                    </p>
+                </div>
             </div>
         </section>
     );

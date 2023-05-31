@@ -107,7 +107,7 @@ function PageHome() {
     }, []);
 
     return (
-        <div className="App">
+        <div>
             {/* {hero} */}
             {arrayFromApi.length && (
                 <Carousel arrayFromApiSliced={arrayFromApi.slice(0, 3)} />

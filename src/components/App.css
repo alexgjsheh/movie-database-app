@@ -857,6 +857,45 @@ header {
     cursor: pointer;
 }
 
+.cast-members-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.cast-member {
+    max-width: 220px;
+    padding: 0rem;
+    border: 1px solid white;
+    border-radius: 32px;
+}
+
+.cast-member-image {
+    border-top-left-radius: 32px;
+    border-top-right-radius: 32px;
+    display: block;
+}
+
+.cast-member-name {
+    font-weight: bold;
+    font-size: 0.75rem;
+    margin: 0;
+    padding: 0.4rem 0;
+}
+.cast-member-role {
+    font-size: 0.75rem;
+    margin: 0;
+    padding-bottom: 0.4rem;
+}
+
+.single-movie-cast-members-header {
+    width: 100%;
+}
+
 @media (min-width: 480px) {
     .single-movie-poster {
         width: 240px;
@@ -877,7 +916,8 @@ header {
         font-size: 1.25rem;
     }
 
-    .single-movie-overview-header {
+    .single-movie-overview-header,
+    .single-movie-cast-members-header {
         font-size: 1.05rem;
     }
 }
@@ -889,13 +929,14 @@ header {
         width: 90%;
         margin: 2rem auto;
         padding: 0.75rem;
-        height: 38rem;
+        height: min-content;
         border-radius: 40px;
         display: grid;
         grid-template-areas:
             "poster rating title heart"
-            "poster info info info";
-        grid-template-rows: 4rem 4fr;
+            "poster info info info"
+            "cast cast cast cast";
+        grid-template-rows: 4rem min-content 4fr;
         grid-template-columns: 2fr 3rem 3fr 2rem;
         position: relative;
         overflow: hidden;
@@ -909,7 +950,8 @@ header {
     }
     .single-movie-poster {
         /* min-width: 220px; */
-        max-width: 100%;
+        width: 100%;
+        max-width: 235px;
         height: auto;
         border-radius: 40px;
     }
@@ -950,20 +992,43 @@ header {
     }
 
     .single-movie-overview {
-        font-size: 0.85rem;
-        line-height: 1.6rem;
+        font-size: 0.75rem;
+        line-height: 1.5rem;
     }
 
     .single-movie-general-info {
         font-size: 0.95rem;
     }
 
-    .single-movie-overview-header {
+    .single-movie-overview-header,
+    .single-movie-cast-members-header {
         font-size: 1.1rem;
+    }
+    .cast-members-container {
+        grid-area: cast;
+    }
+    .cast-member {
+        max-width: 140px;
+        border-radius: 16px;
+    }
+    .cast-member-image {
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+        display: block;
+    }
+    .cast-member-name {
+        font-size: 0.85rem;
+    }
+    .cast-member-role {
+        font-size: 0.85rem;
     }
 }
 
 @media (min-width: 920px) {
+    .cast-member {
+        max-width: 150px;
+        border-radius: 16px;
+    }
     .single-movie-poster {
         width: 100%;
         height: auto;
@@ -996,17 +1061,26 @@ header {
         font-size: 1.4rem;
     }
 
-    .single-movie-overview-header {
+    .single-movie-overview-header,
+    .single-movie-cast-members-header {
         font-size: 1.2rem;
     }
     .single-movie-info-container {
         grid-template-columns: 2.2fr 4rem 3fr 4rem;
     }
+    .cast-members-container {
+        margin-top: 0rem;
+        gap: 1.4rem;
+    }
 }
 
 @media (min-width: 1000px) {
+    .single-movie-info-container {
+        height: min-content;
+    }
     .single-movie-poster {
-        max-width: 100%;
+        max-width: 250px;
+        width: 100%;
         height: auto;
     }
     .single-movie-top-container {
@@ -1017,12 +1091,18 @@ header {
     .single-movie-page-heart {
         right: 0.8rem;
     }
+    .cast-members-container {
+        margin-top: 1rem;
+    }
+    .cast-member {
+        max-width: 155px;
+        border-radius: 16px;
+    }
 }
 
 @media (min-width: 1060px) {
     .single-movie-poster {
         width: 100%;
-        max-width: 360px;
         height: auto;
     }
     .single-movie-top-container {
@@ -1035,13 +1115,39 @@ header {
     .single-movie-page-heart {
         right: 0.8rem;
     }
+    .cast-member {
+        max-width: 160px;
+        border-radius: 16px;
+    }
+    .cast-member-image {
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+        display: block;
+    }
+    .cast-members-container {
+        gap: 1.5rem;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
 }
 
 @media (min-width: 1180px) {
+    .single-movie-info-container {
+        height: min-content;
+    }
     .single-movie-poster {
         width: 100%;
-        max-width: 360px;
+        max-width: 270px;
         height: auto;
+    }
+    .cast-member {
+        max-width: 160px;
+        border-radius: 16px;
+        margin: 0 0.5rem;
+    }
+    .cast-members-container {
+        margin-top: 2rem;
+        gap: 2rem;
     }
 }
 

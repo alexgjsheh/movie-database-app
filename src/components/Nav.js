@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 function Nav({ handleShowHideNav, navOpen }) {
     function closeNav(e) {
-        if (window.innerWidth < 600) {
+        if (window.innerWidth < 660) {
             handleShowHideNav();
         } else {
             e.target.blur();
