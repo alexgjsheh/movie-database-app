@@ -706,10 +706,12 @@ header {
 .footer {
     background-color: black;
     width: 100%;
-    padding: 1rem;
+    padding: 1.25rem;
     color: white;
     display: flex;
     justify-content: center;
+    position: relative;
+    bottom: 0;
 }
 
 /* about page + favorite page styling */
@@ -720,9 +722,9 @@ header {
     color: white;
     width: 80%;
     font-size: 0.8rem;
-    margin: 2rem auto;
+    margin: 4rem auto;
     padding: 1.5rem;
-    height: 72vh;
+    height: 80vh;
     border-radius: 40px;
 }
 
